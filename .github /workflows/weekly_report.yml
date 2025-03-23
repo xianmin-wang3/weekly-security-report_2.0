@@ -27,16 +27,21 @@ jobs:
       - name: 抓取資安新聞連結
         run: python scripts/fetch_news_link.py
 
-      - name: 抓取資安新聞
-        run: python scripts/fetch_news.py  
+      - name: 抓取資安新聞(markdown格式)
+        run: python scripts/download_articles_markdown.py  
 
-      - name: 產生新聞摘要（Groq API）
+      - name: AI Agent產生新聞摘要（Groq API）
         run: python scripts/summarize_news_groq.py
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
-      - name: 生成 Marp 幻燈片 Markdown
-        run: python scripts/generate_slides.py
+      - name: 整理新聞摘要
+        run: python scripts/merge_summary_by_section.py
+
+      - name: 產出資安週報（Groq API）
+        run: python scripts/generate_weekly_report_groq.py
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}  
 
       - name: 發送 LINE 通知
         run: python scripts/send_notification_line.py
