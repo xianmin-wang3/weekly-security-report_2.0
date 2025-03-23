@@ -18,7 +18,7 @@ for item in news_links:
     print(f"📥 下載第 {article_id} 篇 Markdown：{url}")
 
     try:
-        response = requests.get(url, timeout=15)
+        response = requests.get(url, timeout=20)
         if response.status_code != 200:
             print(f"⚠️ 錯誤：HTTP {response.status_code}")
             continue
