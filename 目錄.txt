@@ -1,0 +1,22 @@
+weekly-security-report/                # 主專案目錄
+│── .github/                           # GitHub Actions 設定
+│   └── workflows/
+│       └── weekly_report.yml          # GitHub Actions 自動化流程
+│── data/                              # 儲存中間數據（不需要提交到 GitHub）
+│   ├── news_links.json                # 獲取的新聞連結
+│   ├── security_news.json             # 爬取的資安新聞資料
+│   ├── security_news.xlsx             # 資安新聞資料表格化
+│   ├── summaries.json                 # AI 總結後的新聞
+│   ├── report.md                      # 生成的 Marp 簡報 Markdown
+│   └── report_openai.md               # 生成的 Marp 簡報 Markdown(openai)
+│── scripts/                           # Python 腳本
+|   ├── fetch_new_link.py              # 獲取 iThome 資安新聞連結
+│   ├── fetch_news.py                  # 爬取 iThome 資安新聞並分類整理
+│   ├── summarize_news_groq.py         # 使用 Groq API 總結成資安週報
+│   ├── summarize_news_openai.py       # 使用 OpenAI API 總結成資安週報
+│   ├── generate_slides.py             # 資安週報轉換成Markdown清單
+│   ├── send_notification_line.py      # 透過 LINE Notify 發送通知
+│   ├── send_notification_discord.py   # 透過 discord bot 發送通知(備援)
+│── README.md                          # 專案說明文件
+│── .gitignore                         # 忽略不必要的文件（例如 data/ 內的 JSON）
+│── requirements.txt                   # 需要安裝的 Python 套件
