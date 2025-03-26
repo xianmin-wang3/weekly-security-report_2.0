@@ -49,6 +49,7 @@ for entry in feed.entries:
 
                     # 將內文保存為 JSON 檔案
                     article_data = {
+                        "source": "TheHackersNews",
                         "title": entry.title,
                         "published_time": published_time.strftime('%Y-%m-%d %H:%M:%S'),
                         "link": entry.link,
