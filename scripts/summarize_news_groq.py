@@ -64,7 +64,7 @@ for i in range(1, NUM_ARTICLES + 1):
                 {"role": "system", "content": "你是專業的資安新聞摘要助手。"},
                 {"role": "user", "content": prompt}
             ],
-            model="llama-3.3-70b-specdec",
+            model="meta-llama/llama-4-maverick-17b-128e-instruct",
         )
 
         summary = chat_completion.choices[0].message.content.strip()
