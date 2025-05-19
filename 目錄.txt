@@ -4,19 +4,21 @@ weekly-security-report/                # 主專案目錄
 │       └── weekly_report.yml          # GitHub Actions 自動化流程
 │── data/                              # 儲存中間數據（不需要提交到 GitHub）
 │   ├── news_links.json                # 獲取的新聞連結
-│   ├── security_news.json             # 爬取的資安新聞資料
-│   ├── security_news.xlsx             # 資安新聞資料表格化
-│   ├── summaries.json                 # AI 總結後的新聞
-│   ├── report.md                      # 生成的 Marp 簡報 Markdown
-│   └── report_openai.md               # 生成的 Marp 簡報 Markdown(openai)
+│   ├── article_number.json            # 爬取新聞連結內的文章(一篇新聞號碼+1)
+│   ├── summary_number.json            # Groq AI初步整理資安新聞
+│   ├── merged_summaries.json          # 整理完的資安新聞依分類合併
+│   └── weekly_report.md               # 再次使用 Groq AI 摘整成資安週報 
 │── scripts/                           # Python 腳本
-|   ├── fetch_new_link.py              # 獲取 iThome 資安新聞連結
-│   ├── fetch_news.py                  # 爬取 iThome 資安新聞並分類整理
-│   ├── summarize_news_groq.py         # 使用 Groq API 總結成資安週報
-│   ├── summarize_news_openai.py       # 使用 OpenAI API 總結成資安週報
-│   ├── generate_slides.py             # 資安週報轉換成Markdown清單
+│   ├── fetch_nics.py                  # 獲取 國家資通安全研究院 資安新聞連結內容
+│   ├── fetch_twcert.py                # 獲取 臺灣電腦網路危機處理暨協調中心 資安新聞連結內容
+│   ├── fetch_thehackersnews.py        # 獲取 TheHackersNews 資安新聞連結內容
+|   ├── fetch_new_link.py              # 獲取 iThome 資安新聞連結內容
+│   ├── download_articles_markdown.py  # 爬取新聞連結內的文章
+│   ├── summarize_news_groq.py         # 使用 Groq AI 採一問一答方式(AI Agent)將資安新聞進行初步整理
+│   ├── merge_summary_by_section.py    # 初步整理完的資安新聞依分類進行合併
+│   ├── generate_weekly_report_groq.py # 再次使用 Groq AI 將合併後的新聞摘整成資安週報
 │   ├── send_notification_line.py      # 透過 LINE Notify 發送通知
-│   ├── send_notification_discord.py   # 透過 discord bot 發送通知(備援)
+│   ├── send_notification_discord.py   # 透過 discord bot 發送通知
 │── README.md                          # 專案說明文件
 │── .gitignore                         # 忽略不必要的文件（例如 data/ 內的 JSON）
 │── requirements.txt                   # 需要安裝的 Python 套件
