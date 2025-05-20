@@ -27,8 +27,8 @@ for entry in feed.entries:
     if hasattr(entry, "published_parsed"):  # 確保有發佈時間
         published_time = datetime.fromtimestamp(time.mktime(entry.published_parsed))
         
-        # 只儲存網址包含 "thn" 的文章
-        if published_time >= one_week_ago and "thn" in entry.link.lower():
+        # 只儲存網址包含 "weekly" 的文章
+        if published_time >= one_week_ago and "weekly" in entry.link.lower():
             print(f"📌 {entry.title}")
             print(f"   🕒 發布時間: {published_time.strftime('%Y-%m-%d %H:%M:%S')}")
             print(f"   🔗 連結: {entry.link}")
