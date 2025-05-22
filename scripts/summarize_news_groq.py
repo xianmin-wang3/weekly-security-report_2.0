@@ -77,7 +77,7 @@ for i in range(1, NUM_ARTICLES + 1):
 ---
 
 以下是文章內容：
-{{article_text}}
+{article_text}
 """
 
     try:
