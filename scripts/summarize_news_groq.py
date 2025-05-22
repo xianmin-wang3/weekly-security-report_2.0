@@ -78,7 +78,7 @@ for i in range(1, NUM_ARTICLES + 1):
 
 以下是文章內容：
 {{article_text}}
-    """
+"""
 
     try:
         print(f"🧠 正在摘要第 {i} 篇文章...")
